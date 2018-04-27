@@ -34,12 +34,25 @@ theme.clean <- function(){
 }
 
 # Load data ----
-setwd("your file path")
+setwd("C:/Users/Nina/Documents/RESEARCH/CC-7-Github")
 temp_elevation <- read.csv("temp_elevation.csv")
 
 # Make a plot showing how soil temperature changes with elevation ----
 
 # Save your plot in your project directory
+
+library(ggplot2)
+
+
+ggplot(aes(x=Elevation.m, y = Soil.temp.mean), data = temp_elevation) +
+geom_point()
+  
+(temp.el <- ggplot (temp_elevation, aes(x = Elevation.m, y = Soil.temp.mean)) +
+    geom_point(colour = "#8B4513") +
+    geom_smooth(method = lm, colour = "#8B4513", fill = "#8B4513", alpha = 0.6) +
+    labs(x = "Elevation (m)", y = "Mean soil temperature (°C)") +
+    theme.clean())
+
 
 
 # Commit, pull, push!
